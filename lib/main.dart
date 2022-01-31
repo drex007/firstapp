@@ -20,29 +20,44 @@ class Homepage extends StatelessWidget {
       appBar: AppBar(
         title: Text("TrevInvest"),
       ),
-      body: Center(
-        child: Container(
+      body: Container(
+        width: 700,
+        color: Colors.grey,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Container(
          padding: const EdgeInsets.all(8),
    
-         width: 350,
+         width: 100,
          height: 100,
          alignment: Alignment.center,
-         decoration: BoxDecoration(
-           color: Colors.pink,
-           borderRadius: BorderRadius.circular(10),
-           gradient: LinearGradient(colors: [
-             Colors.pink,
-             Colors.black,
-           ]),
-           
-         ),
-         child: Text("I am a box",
-         textAlign: TextAlign.center,
-         style: TextStyle(
-           fontSize: 30,
-           color: Colors.white,
-           fontWeight: FontWeight.bold,
-         )),
+         color:  Colors.pink,
+         
+         
+        ),
+        Container(
+         padding: const EdgeInsets.all(8),
+   
+         width: 100,
+         height: 100,
+         alignment: Alignment.center,
+         color:  Colors.green,
+         
+         
+        ),
+        Container(
+         padding: const EdgeInsets.all(8),
+   
+         width: 100,
+         height: 100,
+         alignment: Alignment.center,
+         color:  Colors.purple,
+         
+         
+        ),
+          ],
         ),
       ),
     );
