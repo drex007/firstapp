@@ -11,21 +11,58 @@ void main() {
 }
 
 
-class Homepage extends StatelessWidget {
+class Homepage extends StatefulWidget {
   const Homepage({ Key? key }) : super(key: key);
 
   @override
+  State<Homepage> createState() => _HomepageState();
+}
+
+class _HomepageState extends State<Homepage> {
+  var myText = "Change Your name" ;
+  TextEditingController _newcontroller = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("TrevInvest"),
       ),
       body: Center(
-        child: Container(
-          width: 100,
-          height: 100,
-          color: Colors.grey,
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: SingleChildScrollView(
+            child: Card(
+              child: Column(
+                children: [
+                  Image.asset("assets/codin.jpg"),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text(myText,
+                   style: TextStyle(
+                    fontSize: 25, 
+                    fontWeight: FontWeight.bold,
           
+                  ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: TextField(
+                      controller: _newcontroller,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        
+                        labelText: "Name",
+                        hintText: "Enter Name"
+                      ),
+                    ),
+                  ),
+          
+                ],
+              ),
+            ),
+          ),
         ),
       ),
       drawer: Drawer(
@@ -71,8 +108,13 @@ class Homepage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(onPressed: null,
-      child: Icon(Icons.edit),
+      floatingActionButton: FloatingActionButton(onPressed: () {
+        myText = _newcontroller.text;
+        setState(() {
+          
+        });
+      },
+      child: Icon(Icons.send),
 
 
       ),
