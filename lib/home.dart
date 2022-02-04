@@ -1,7 +1,9 @@
 // ignore_for_file: unused_local_variable
 
+import 'package:firstapp/pages/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
 
 // import 'cardwidget.dart';
@@ -9,6 +11,8 @@ import 'drawer.dart';
 
 
 class Homepage extends StatefulWidget {
+ static const String routeName = "/home";
+ 
   const Homepage({ Key? key }) : super(key: key);
 
   @override
@@ -44,6 +48,18 @@ class _HomepageState extends State<Homepage> {
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
         title: Text("TrevInvest"),
+        actions: [
+          IconButton(
+            onPressed: (){
+              sharedpref == null;
+              // Navigator.push(context,
+              //  MaterialPageRoute(builder: (context)=>LoginPage()));
+              Navigator.pushNamed(context, LoginPage.routeName);
+            }, 
+            icon: Icon(Icons.exit_to_app),
+            
+            ),
+        ],
       ),
       body: data != null ? ListView.builder(itemBuilder: (context, index){
         return ListTile(
@@ -61,6 +77,7 @@ class _HomepageState extends State<Homepage> {
       ),
       drawer: MyDrawer(),
       floatingActionButton: FloatingActionButton(onPressed: () {
+        
         // myText = _newcontroller.text;
         setState(() {
           
@@ -73,3 +90,4 @@ class _HomepageState extends State<Homepage> {
     );
   }
 }
+
